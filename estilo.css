@@ -1,0 +1,297 @@
+:root {
+  --primary: #FF5722;
+  --sidebar: #14213D;
+  --footer: #14213D;
+  --bg: #F0F2F5;
+  --card: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+}
+
+/* Ocultar inputs de archivo */
+input[type="file"] { 
+  display: none;
+}
+
+/* Header */
+header {
+  background: var(--primary);
+  color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+header .logo {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+header .title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+/* Layout */
+.content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  padding: 35px;
+  background: var(--sidebar);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding-top: 10px;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 20px 0;
+  font-size: 1.2em;
+  transition: all .3s;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+.sidebar a:active {
+  transform: translateX(2px);
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* Controls */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.controls2 {
+  padding: 10px;
+  margin: 20px;
+}
+
+/* Alineamos cada botón dentro de su celda */
+.controls .control-item:first-child {
+  text-align: center;
+}
+.controls .control-item:last-child {
+  text-align: center;
+}
+.controls2 .control-item:first-child {
+  text-align: center;
+}
+.controls2 .control-item:last-child {
+  text-align: center;
+}
+
+/* Botones */ 
+.controls button, .controls2 button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+}
+.controls .primary, .controls2 .primary {
+  background: var(--primary);
+  color: #fff;
+}
+.controls .secondary {
+  background: #ccc;
+  color: #000;
+}
+.controls button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: all 0.2s;
+}
+#fijarButton {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+}
+.card {
+  background: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex: 1;
+}
+.card img {
+  width: 16%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Datepicker dentro de la card */
+.datepicker {
+  margin-top: 20px;
+  font-size: .9em;
+}
+
+/* Footer */
+footer {
+  background: var(--footer);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: .9em;
+}
+
+/* Fecha */
+.hidden {
+  display: none;
+}
+
+/* estilo para el input personalizado */
+#customDateInput {
+  margin-top: 10px;
+  width: calc(100% - 20px);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+#pdfCard {
+  position: relative;
+  overflow: auto;
+}
+
+/* PDF Preview */
+#pdfPreview {
+  width: 100%;
+  height: 400px;
+  display: block;
+  pointer-events: auto;
+}
+
+#draggableStamp {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: move;
+  transform-origin: center center;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+/* Sello + Fecha */
+#stampPreview { 
+  width: 100px; 
+  display: block; 
+  margin: 0 auto;
+}
+
+#stampControls { 
+  margin-top: 10px; 
+  font-size: .9em;
+}
+
+/* Estilos para la lista de PDFs */
+.pdf-list-container {
+  background: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.pdf-list-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.pdf-list {
+  list-style: none;
+  padding: 0;
+}
+
+.pdf-list li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdf-list li:last-child {
+  border-bottom: none;
+}
+
+.pdf-list .pdf-name {
+  flex: 1;
+}
+
+.pdf-list .pdf-text-input {
+  width: 200px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.pdf-list .pdf-text-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.pdf-count {
+  background: var(--primary);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Texto arrastrables sobre el PDF */
+.draggable-text {
+  position: absolute;
+  cursor: move;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1001;
+  user-select: none;
+}

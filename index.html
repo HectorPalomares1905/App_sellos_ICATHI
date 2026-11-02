@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sello de Archivos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ICATHI</div>
+    <div class="title">Sello de Archivos</div>
+  </header>
+
+  <div class="content">
+    <nav class="sidebar">
+      <a href="#">Inicio</a>
+      <a id="openStampButton">Abrir sellos</a>
+      <a id="folderButton">Seleccionar carpeta</a>
+    </nav>
+
+    <div class="main">
+      <div class="controls">
+        <div class="control-item">
+          <button class="primary" id="pdfButton">Seleccionar PDF</button>
+        </div>
+        <div class="control-item">
+          <button class="secondary" id="stampButton">Seleccionar imagen del sello</button>
+        </div>
+        <div class="control-item">
+          <button id="fijarButton">Fijar sello</button>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card" id="pdfCard">
+          <embed id="pdfPreview" type="application/pdf" hidden />
+          <img id="draggableStamp" hidden>
+          <div id="draggableText" class="draggable-text" hidden>
+            <span id="textPreview"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img id="stampPreview" hidden>
+          <div class="datepicker">
+            <label><input type="radio" name="date" value="hoy" checked> Hoy</label><br>
+            <label><input type="radio" name="date" value="ayer"> Ayer</label><br>
+            <label><input type="radio" name="date" value="personalizada"> Seleccionar Fecha</label>
+          </div>
+          <input type="text" id="customDateInput" class="hidden" placeholder="02 Ene 2025">
+          <div id="stampControls" class="hidden">
+            <label>Tamaño: <input type="range" id="scaleInput" min="0.2" max="2" step="0.1" value="1"></label><br>
+            <label>Rotación: <input type="range" id="rotInput" min="0" max="360" step="1" value="0"></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="pdf-list-container hidden" id="pdfListContainer">
+        <div class="pdf-count" id="pdfCount"></div>
+        <div class="pdf-list-header">Archivos PDF cargados:</div>
+        <ul class="pdf-list" id="pdfList"></ul>
+      </div>
+
+      <div class="controls2">
+        <div class="control-item">
+          <button class="primary" id="downloadButton">Descargar PDF</button>
+        </div>
+      </div>    
+    </div>
+  </div>
+
+  <footer>
+    ICATHI – Instituto de Capacitación para el Trabajo del Estado de Hidalgo
+  </footer>
+
+  <input type="file" id="pdfInput" accept="application/pdf" hidden>
+  <input type="file" id="folderInput" webkitdirectory directory multiple hidden>
+  <input type="file" id="stampInput" accept="image/png" hidden>
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
